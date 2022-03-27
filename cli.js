@@ -16,7 +16,7 @@ program
         api.clear().then(()=>{console.log('删除成功')},()=>{console.log('删除失败')})
     });
 program.parse(process.argv);
-
+//process.argv输入的内容
 if(process.argv.length===2){
     api.showAll()
 }
