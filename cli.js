@@ -1,0 +1,22 @@
+const program  = require('commander');
+const api = require('./index')
+program
+    .option('-d, --ddd', 'output extra debugging')
+
+program
+    .command('add')
+    .description('add name')
+    .action((val) => {
+        api.add(val).then(()=>{console.log('添加成功')},()=>{console.log('添加失败')})
+    });
+program
+    .command('clear')
+    .description('clear')
+    .action(() => {
+        api.clear().then(()=>{console.log('删除成功')},()=>{console.log('删除失败')})
+    });
+program.parse(process.argv);
+
+if(process.argv.length===2){
+    api.showAll()
+}
